@@ -1,0 +1,12 @@
+{
+  "recommendations": [
+    "ms-python.python",
+    "ms-toolsai.jupyter",
+    "eamodio.gitlens",
+    "innoverio.vscode-dbt-power-user",
+    "mtxr.sqltools",
+    "tamasfe.even-better-toml",
+    "redhat.vscode-yaml",
+    "ms-vscode.live-server"
+  ]
+}

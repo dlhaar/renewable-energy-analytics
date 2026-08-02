@@ -20,6 +20,9 @@ data/processed/**
 !data/raw/.gitkeep
 !data/processed/.gitkeep
 
+# Docs - notes for the project
+data/notes/**
+
 # dbt
 dbt/**/target/
 dbt/**/dbt_packages/

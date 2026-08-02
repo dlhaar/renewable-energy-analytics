@@ -20,8 +20,8 @@ data/processed/**
 !data/raw/.gitkeep
 !data/processed/.gitkeep
 
-# Docs - notes for the project
-data/notes/**
+# Docs
+docs/notes/**
 
 # dbt
 dbt/**/target/

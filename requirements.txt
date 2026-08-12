@@ -22,3 +22,5 @@ seaborn>=0.13
 # Analysis
 scikit-learn>=1.4
 statsmodels>=0.14
+
+entsoe-py>=0.6

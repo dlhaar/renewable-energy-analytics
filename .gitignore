@@ -48,3 +48,5 @@ Thumbs.db
 # Tableau (workbooks can be large; keep only what you intend to publish)
 *.twbx
 *.hyper
+
+scratch/**

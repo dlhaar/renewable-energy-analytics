@@ -10,6 +10,7 @@ def clean_smard_generation(df: pd.DataFrame) -> pd.DataFrame:
             Start date, End date, energy_source, generation_mwh
     """
     df = df.copy()
+
     # 1. Fix comma-separated thousands in numeric columns
 
     excl_cols = ['Start date', 'End date', 'Nuclear [MWh] Original resolutions']
@@ -50,11 +51,59 @@ def clean_smard_generation(df: pd.DataFrame) -> pd.DataFrame:
 
     return df_long
 
+
+
+def clean_smard_price(df: pd.DataFrame) -> pd.DataFrame:
+    """ 
+    Clean SMARD day ahead prices 
+    Input: Wide format dataframe downloaded from SMARD: start date,
+    end date, one column per country
+    Output: Long format with start and end date, country, and price eur/mwh
+    
+    
+    """
+
+    df = df.copy()
+
+    # 1. Select the four columns that are needed
+    df = df[['Start date',
+             'End date',
+             'Germany/Luxembourg [€/MWh] Original resolutions',
+             'France [€/MWh] Original resolutions']]
+
+    # 2. Convert Start date / End date to datetime
+    df['Start date'] = pd.to_datetime(df['Start date'], format='%b %d, %Y %I:%M %p')
+    df['End date'] = pd.to_datetime(df['End date'], format='%b %d, %Y %I:%M %p')
+
+    # 3. Melt to long format
+    df_long = df.melt(
+        id_vars=['Start date', 'End date'],
+        var_name='country',
+        value_name='price_eur_mwh'
+    )
+
+    # 4. Clean country names
+
+    df_long['country'] = (df_long['country']
+        .str
+        .replace(' [€/MWh] Original resolutions', '', regex=False)
+    )
+
+    return df_long
+
 if __name__ == "__main__":
+
+    #gen_data = 'data/raw/Actual_generation_202607010000_202608010000_Quarterhour.csv'
+    price_data = 'data/raw/Day-ahead_prices_202607010000_202608010000_Quarterhour.csv'
+
     df = (pd.read_csv(
-        "data/raw/Actual_generation_202607010000_202608010000_Quarterhour.csv",
+        price_data,
         sep=';')
         )
 
-    clean_df = clean_smard_generation(df)
+    clean_df = clean_smard_price(df)
     print(clean_df.info())
+
+    print(clean_df.head())
+
+    print(clean_df['country'].unique().tolist())

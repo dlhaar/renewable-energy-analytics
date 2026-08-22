@@ -1,7 +1,7 @@
 # Project Charter: EU Renewable Energy Analytics
 
 ## Problem Statement
-Germany's electricity grid has shifted heavily toward renewable generation over the past decade, but the public narrative around this transition is often qualitative ("Germany is a renewable leader") rather than grounded in the underlying generation and price data. This project builds a proper dimensional data model on top of real German and EU market data to answer concrete questions about renewable generation patterns, reliability, and their relationship to electricity prices — and to demonstrate end-to-end analytics engineering skill (modeling, transformation, analysis, and visualization) in a domain I want to work in.
+Germany's electricity grid has shifted heavily toward renewable generation over the past decade, but the public narrative around this transition is often qualitative ("Germany is a renewable leader") rather than grounded in the underlying generation and price data. This project builds a proper dimensional data model on top of real German and EU market data to answer concrete questions about renewable generation patterns, reliability, and their relationship to electricity prices — and to demonstrate end-to-end analytics engineering skill (modeling, transformation, analysis, and visualization) in a domain I want to work in. 
 
 ## Goals
 1. Build a portfolio project that demonstrates real dimensional modeling skill (grain, fact/dim design, conformed dimensions) — not just SQL querying
